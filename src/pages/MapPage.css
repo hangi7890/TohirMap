@@ -1,0 +1,596 @@
+/* ==========================================================================
+   [리액트 포팅] MapPage 전용 스타일시트
+   - 기존의 글로벌 태그(html, body, header) 스타일을 제거하여 
+     기존 리액트 앱의 디자인 시스템 및 네비게이션 바와 완벽하게 융합됩니다.
+   ========================================================================== */
+
+/* 1. 컬러 시스템 및 전용 변수 선언 */
+:root {
+  --ink: #17313f;
+  --muted: #61727c;
+  --paper: #f7f1e3;
+  --panel: #fffaf0;
+  --sky: #2e8fc2;
+  --turquoise: #00a7a5;
+  --gold: #d59d34;
+  --coral: #d85d4a;
+  --leaf: #2f7a62;
+  --line: rgba(23, 49, 63, 0.14);
+  --shadow: 0 24px 70px rgba(23, 49, 63, 0.2);
+}
+
+/* 2. 지도 페이지 전체 레이아웃 (쉘) */
+.page-shell {
+  display: grid;
+  grid-template-columns: 1fr 400px; /* 왼쪽 지도, 오른쪽 정보 패널 */
+  gap: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+/* 3. 왼쪽 지도 스테이지 스타일 */
+.map-stage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 700px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.map-title {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 1000; /* Leaflet 지도 레이어보다 위에 뜨도록 설정 */
+  pointer-events: none;
+}
+
+.map-title p {
+  margin: 0;
+  color: var(--coral);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.map-title h1 {
+  margin: 4px 0 0 0;
+  color: var(--ink);
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* 실제 렌더링되는 Leaflet 지도 영역 */
+.leaflet-map {
+  flex: 1;
+  background: #cadfa3; /* 지도 로딩 전 기본 배경색 */
+}
+
+/* 4. 지도 위에 얹어지는 커스텀 이미지/루트 오버레이 */
+.route-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 999;
+  pointer-events: none; /* 지도를 클릭하거나 드래그할 수 있도록 마우스 이벤트 통과 */
+}
+
+.route-overlay svg {
+  width: 100%;
+  height: 100%;
+}
+
+.route-overlay polyline {
+  fill: none;
+  stroke: var(--coral);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 8 8;
+  animation: route-flow 30s linear infinite; /* 실크로드 선이 흐르는 효과 */
+}
+
+@keyframes route-flow {
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+
+/* 지도 위 커스텀 핀 버튼 */
+.overlay-pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: var(--ink);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(23, 49, 63, 0.3);
+  pointer-events: auto; /* 핀은 클릭이 되어야 하므로 포인터 이벤트 활성화 */
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.2s;
+}
+
+.overlay-pin:hover,
+.overlay-pin.active {
+  transform: translate(-50%, -50%) scale(1.25);
+  z-index: 10;
+}
+
+.overlay-pin.active {
+  background: var(--coral);
+}
+
+.overlay-heritage { background: var(--gold); }
+.overlay-city { background: var(--turquoise); }
+.overlay-nature { background: var(--leaf); }
+
+/* 하단 퀵 액션 버튼 바 */
+.map-actions {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  left: 24px;
+  z-index: 1000;
+  display: flex;
+  gap: 8px;
+  pointer-events: auto;
+}
+
+.map-actions button {
+  flex: 1;
+  padding: 12px;
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: rgba(255, 250, 240, 0.85);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(23, 49, 63, 0.08);
+  transition: background 0.2s, transform 0.2s;
+}
+
+.map-actions button:hover {
+  background: var(--panel);
+  transform: translateY(-2px);
+}
+
+/* 5. Leaflet 라이브러리 내부 핀 디자인 오버라이드 */
+.custom-pin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  box-shadow: -2px 4px 12px rgba(23, 49, 63, 0.3);
+}
+
+.custom-pin span {
+  transform: rotate(45deg);
+}
+
+.pin-heritage { background: var(--gold); }
+.pin-city { background: var(--turquoise); }
+.pin-nature { background: var(--leaf); }
+
+/* 6. 우측 정보 패널 스타일 */
+.info-panel {
+  display: flex;
+  flex-direction: column;
+  height: 700px;
+  padding: 32px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.intro-block .eyebrow {
+  color: var(--coral);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.intro-block h2 {
+  margin: 6px 0 12px 0;
+  color: var(--ink);
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.intro-block p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+/* 통계 데이터 그리드 */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.stats-grid article {
+  display: flex;
+  flex-direction: column;
+  padding: 14px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.stats-grid strong {
+  color: var(--ink);
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.stats-grid span {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* 필터 버튼 영역 */
+.filter-row {
+  display: flex;
+  gap: 6px;
+  margin-top: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.filter-button {
+  padding: 6px 12px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  transition: all 0.15s;
+}
+
+.filter-button:hover,
+.filter-button.active {
+  color: #fff;
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+/* 장소 스크롤 리스트 */
+.spot-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.spot-button {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px;
+  text-align: left;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.spot-button:hover {
+  background: rgba(23, 49, 63, 0.04);
+}
+
+.spot-button.active {
+  background: #fff;
+  border-color: var(--line);
+  box-shadow: 0 4px 16px rgba(23, 49, 63, 0.05);
+}
+
+.spot-index {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: rgba(23, 49, 63, 0.06);
+  border-radius: 4px;
+}
+
+.spot-button.active .spot-index {
+  color: #fff;
+  background: var(--ink);
+}
+
+.spot-button strong {
+  display: block;
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.spot-button strong + span {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.spot-type {
+  color: var(--muted);
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* 하단 선택된 카드 상세 설명 공간 */
+.selected-card {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.selected-tag {
+  display: inline-block;
+  color: var(--coral);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.selected-card h3 {
+  margin: 4px 0 8px 0;
+  color: var(--ink);
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.selected-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.selected-card dl {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 14px 0 0 0;
+  font-size: 0.82rem;
+}
+
+.selected-card dl div {
+  display: flex;
+  gap: 8px;
+}
+
+.selected-card dt {
+  flex: 0 0 64px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.selected-card dd {
+  margin: 0;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* 7. 좌측 하단 가이드 챗봇 위젯 스타일 */
+.chat-widget {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 1100; /* 전체 화면 레이어 최상단 고정 */
+  display: flex;
+  flex-direction: column;
+  width: 340px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 12px 40px rgba(23, 49, 63, 0.16);
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* 챗 헤더 */
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: var(--ink);
+  color: #fff;
+}
+
+.chat-header span {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+}
+
+.chat-header strong {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.chat-header button {
+  padding: 4px;
+  color: #fff;
+  font-size: 1.2rem;
+  background: transparent;
+  border: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.chat-header button:hover {
+  opacity: 1;
+}
+
+/* 챗 본문 내부 */
+.chat-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  background: var(--panel);
+  max-height: 280px;
+  overflow-y: auto;
+  transition: max-height 0.3s, padding 0.3s;
+}
+
+/* 챗봇이 보낸 말풍선 모양 */
+.bot-message {
+  margin: 0;
+  padding: 12px;
+  color: var(--ink);
+  font-size: 0.85rem;
+  line-height: 1.45;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 0 12px 12px 12px;
+  box-shadow: 0 2px 8px rgba(23, 49, 63, 0.03);
+}
+
+.bot-message.muted {
+  color: var(--muted);
+  border-style: dashed;
+}
+
+/* 챗봇 빠른 질문용 가로 스크롤 버튼 목록 */
+.quick-questions {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.quick-questions button {
+  flex: 0 0 auto;
+  padding: 6px 12px;
+  color: var(--sky);
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: #fff;
+  border: 1px solid rgba(46, 143, 194, 0.24);
+  border-radius: 16px;
+  transition: all 0.2s;
+}
+
+.quick-questions button:hover {
+  color: #fff;
+  background: var(--sky);
+  border-color: var(--sky);
+}
+
+/* 챗 위젯이 접혔을(collapsed) 때 스타일 제어 */
+.chat-widget.collapsed {
+  transform: translateY(calc(100% - 60px)); /* 헤더만 남기고 아래로 쏙 내려감 */
+}
+
+.chat-widget.collapsed .chat-body {
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   8. 태블릿 & 모바일 반응형 미디어 쿼리 완벽 최적화
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .page-shell {
+    grid-template-columns: 1fr; /* 세로 1줄 배열로 변경 */
+  }
+  .map-stage,
+  .info-panel {
+    height: 600px;
+  }
+}
+
+@media (max-width: 760px) {
+  .page-shell {
+    padding: 14px;
+  }
+
+  .map-stage,
+  .leaflet-map {
+    min-height: 520px;
+  }
+
+  .map-title {
+    top: 16px;
+    left: 16px;
+  }
+
+  .map-actions {
+    right: 78px;
+    bottom: 12px;
+    left: 12px;
+    overflow-x: auto; /* 모바일에서 퀵 버튼이 넘칠 때 가로 스크롤 허용 */
+  }
+
+  .map-actions button {
+    flex: 0 0 auto;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .spot-button {
+    grid-template-columns: auto 1fr;
+  }
+
+  .spot-type {
+    grid-column: 2;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+}
