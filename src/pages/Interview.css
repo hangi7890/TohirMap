@@ -1,35 +1,232 @@
-/* src/pages/Culture.css */
-.culture-page-container { max-width: 1400px; margin: 0 auto; padding: 24px; box-sizing: border-box; }
-.culture-title-block { margin-bottom: 24px; }
-.culture-eyebrow { color: #d85d4a; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
-.culture-title-block h2 { margin: 6px 0 10px 0; color: #17313f; font-size: 1.8rem; font-weight: 800; }
+/* src/pages/Interview.css */
+/* 전체 컨테이너 이름 변경 */
+.interview-page-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px;
+  box-sizing: border-box;
+}
 
-.culture-layout-grid {
+/* 타이틀 블록 이름 변경 */
+.interview-title-block {
+  margin-bottom: 24px;
+}
+
+.interview-eyebrow {
+  color: #d85d4a; 
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.interview-title-block h2 {
+  margin: 6px 0 10px 0;
+  color: #17313f;
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.interview-title-block p {
+  margin: 0;
+  color: #61727c;
+  font-size: 0.95rem;
+}
+
+/* ⚠️ 가장 중요: 가로 배치를 담당하는 그리드 레이아웃 이름 변경 */
+.interview-layout-grid {
   display: grid;
   grid-template-columns: 420px 1fr;
   gap: 24px;
   height: 620px;
 }
 
-.interview-sidebar { 
-  display: flex; flex-direction: column; gap: 8px; background: #fffaf0; 
-  border: 1px solid rgba(23, 49, 63, 0.14); border-radius: 12px; padding: 16px; 
-  overflow-y: auto; box-shadow: 0 10px 30px rgba(23, 49, 63, 0.05);
+/* 사이드바 및 내부 요소들 */
+.interview-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #fffaf0;
+  border: 1px solid rgba(23, 49, 63, 0.14);
+  border-radius: 12px;
+  padding: 16px;
+  overflow-y: auto; 
+  box-shadow: 0 10px 30px rgba(23, 49, 63, 0.05);
 }
 
-.interview-main-viewer { 
-  display: flex; flex-direction: column; background: #ffffff; 
-  border: 1px solid rgba(23, 49, 63, 0.14); border-radius: 12px; 
-  box-shadow: 0 20px 50px rgba(23, 49, 63, 0.08); overflow: hidden;
+button.interview-selector-btn {
+  all: unset;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 14px 16px;
+  background: #ffffff;
+  border: 1px solid rgba(23, 49, 63, 0.08);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  text-align: left;
 }
 
-.chat-flow-zone { flex: 1; background: #fdfaf4; padding: 40px; display: flex; flex-direction: column; gap: 32px; justify-content: center; }
-.chat-bubble-row { display: flex; gap: 16px; max-width: 85%; }
-.question-row { align-self: flex-start; }
-.answer-row { align-self: flex-end; flex-direction: row-reverse; }
-.bubble-question { background: #ffffff; border: 1px solid rgba(23, 49, 63, 0.12); padding: 16px; border-radius: 12px; }
-.bubble-answer { background: #17313f; padding: 16px; border-radius: 12px; color: #fff; }
+button.interview-selector-btn:hover {
+  background: rgba(23, 49, 63, 0.03);
+  transform: translateX(4px);
+}
 
+button.interview-selector-btn.active {
+  background: #17313f !important;
+  border-color: #17313f !important;
+  box-shadow: 0 4px 12px rgba(23, 49, 63, 0.12);
+}
+
+.interview-num {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #61727c;
+  background: rgba(23, 49, 63, 0.06);
+  padding: 4px 8px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+button.interview-selector-btn.active .interview-num {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.interview-q-text {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #17313f;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+}
+
+button.interview-selector-btn.active .interview-q-text {
+  color: #ffffff;
+}
+
+.interview-main-viewer {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid rgba(23, 49, 63, 0.14);
+  border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(23, 49, 63, 0.08);
+  overflow: hidden;
+}
+
+.viewer-card-header {
+  background: #17313f;
+  padding: 14px 20px;
+  color: #ffffff;
+}
+
+.viewer-card-header h3 {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  opacity: 0.9;
+}
+
+.chat-flow-zone {
+  flex: 1;
+  background: #fdfaf4; 
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  justify-content: center;
+}
+
+.chat-bubble-row {
+  display: flex;
+  gap: 16px;
+  max-width: 85%;
+}
+
+.question-row {
+  align-self: flex-start; 
+}
+
+.answer-row {
+  align-self: flex-end; 
+  flex-direction: row-reverse; 
+}
+
+.avatar-icon {
+  width: 44px;
+  height: 44px;
+  font-size: 1.5rem;
+  background: #ffffff;
+  border: 1px solid rgba(23, 49, 63, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+  flex-shrink: 0;
+}
+
+.chat-bubble {
+  position: relative;
+  padding: 16px 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(23, 49, 63, 0.04);
+}
+
+.bubble-tag {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.chat-bubble p {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.bubble-question {
+  background: #ffffff;
+  border: 1px solid rgba(23, 49, 63, 0.12);
+  border-top-left-radius: 0; 
+}
+.bubble-question .bubble-tag { color: #2e8fc2; }
+.bubble-question p { color: #17313f; }
+
+.bubble-answer {
+  background: #17313f;
+  border-top-right-radius: 0;
+}
+.bubble-answer .bubble-tag { color: #00a7a5; }
+.bubble-answer p { color: #ffffff; }
+
+.viewer-footer-tip {
+  padding: 16px 20px;
+  background: #fffaf0;
+  border-top: 1px solid rgba(23, 49, 63, 0.1);
+  font-size: 0.82rem;
+  color: #61727c;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* 반응형 이름 변경 */
 @media (max-width: 900px) {
-  .culture-layout-grid { grid-template-columns: 1fr; height: auto; }
+  .interview-layout-grid { grid-template-columns: 1fr; height: auto; }
+  .interview-sidebar { height: 200px; }
+  .chat-flow-zone { padding: 24px; }
 }

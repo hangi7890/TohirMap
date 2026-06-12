@@ -1,6 +1,7 @@
 import React from 'react';
-import { cultureData } from '../data'; // 데이터 불러오기
-import './PageStyle.css'; // 여행/음식 페이지와 같은 디자인 공유
+import { cultureData } from '../data';
+import './PageStyle.css';
+import './Culture.css';
 
 function Culture() {
   return (

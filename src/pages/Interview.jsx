@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Culture.css'; // 인터뷰 페이지도 이 CSS를 공유합니다
+import './Interview.css'; 
 
 const interviewData = [
   { id: 1, q: "우즈베키스탄에 대해 알고 있나요?", a: "네, 중앙아시아에 있는 나라라고 알고 있습니다." },
@@ -34,14 +34,14 @@ function Interview() {
   const currentInterview = interviewData.find(item => item.id === activeId) || interviewData[0];
 
   return (
-    <div className="culture-page-container">
-      <header className="culture-title-block">
-        <span className="culture-eyebrow">Local Voices & Culture</span>
+    <div className="interview-page-container">
+      <header className="interview-title-block">
+        <span className="interview-eyebrow">Local Voices & Culture</span>
         <h2>현지인 인터뷰 모음</h2>
         <p>25개의 생생한 문답을 통해 우즈베키스탄의 진짜 매력을 확인해 보세요.</p>
       </header>
 
-      <div className="culture-layout-grid">
+      <div className="interview-layout-grid">
         <nav className="interview-sidebar">
           {interviewData.map((item) => (
             <button
@@ -80,7 +80,7 @@ function Interview() {
           </div>
 
           <div className="viewer-footer-tip">
-            💡 왼쪽 질문 리스트를 클릭하면 다른 인터뷰 대화 내용을 실시간으로 확인하실 수 있습니다.
+            💡 ① 왼쪽 질문 리스트를 클릭하면 다른 인터뷰 대화 내용을 실시간으로 확인하실 수 있습니다.
           </div>
         </main>
       </div>
