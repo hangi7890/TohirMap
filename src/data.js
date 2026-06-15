@@ -26,16 +26,61 @@ export const foodData = [
 ];
 
 export const cultureData = [
-  { id: 'navruz', img: '/images/navruz.jpg', title: '🌸 1. 나브루즈 (Navro‘z)', desc: '나브루즈는 3월 21일에 열리는 우즈베키스탄의 새해 축제입니다.' },
-  { id: 'clothes', img: '/images/clothes.jpg', title: '👕 2. 전통 의상', desc: '우즈베키스탄 전통 의상은 화려한 색상과 아름다운 무늬가 특징입니다.' },
-  { id: 'music', img: '/images/music.jpg', title: '🎵 3. 전통 음악', desc: '두타르, 탄부르, 도이라 등 다양한 전통 악기가 있습니다.' },
-  { id: 'dance', img: '/images/dance.jpg', title: '💃 4. 전통 춤', desc: '우즈베키스탄의 전통 춤은 우아한 손동작과 화려한 의상이 특징입니다.' },
-  { id: 'wedding', img: '/images/wedding.jpg', title: '💖 5. 전통 결혼식', desc: '가족과 친척이 함께하는 큰 행사로 전통 음악과 춤이 함께합니다.' },
-  { id: 'hospitality', img: '/images/hospitality.jpg', title: '🤝 6. 손님 환대 문화', desc: '손님을 따뜻하게 맞이하고 차와 음식을 대접하는 문화가 있습니다.' },
-  { id: 'food', img: '/images/food.jpg', title: '🍽️ 7. 전통 음식 문화', desc: '플로브, 삼사, 라그만 등 다양한 전통 음식이 있습니다.' },
-  { id: 'history', img: '/images/history.jpg', title: '🏛️ 8. 역사 유산', desc: '사마르칸트, 부하라, 히바는 실크로드의 대표적인 역사 도시입니다.' }
+  {
+    id: 'navruz',
+    img: '/images/navruz.jpg',
+    title: '🌸 나브루즈 축제',
+    desc: '우즈베키스탄의 봄 새해 축제이며 가장 큰 명절입니다.',
+    location: '사마르칸트, 타슈켄트',
+    point: '전통 음식(수말락), 음악, 거리 축제',
+    tip: '3월 21일 전후 방문 추천'
+  },
+  {
+    id: 'clothes',
+    img: '/images/clothes.jpg',
+    title: '👕 전통 의상',
+    desc: '우즈베키스탄 전통 의상은 화려한 색상과 아름다운 무늬가 특징입니다.',
+    location: '부하라 전통 시장, 타슈켄트 박물관',
+    point: '알록달록한 아틀라스 천, 수자니 자수 의상 체험',
+    tip: '현지 전통 시장인 바자르에서 저렴하게 구매 가능'
+  },
+  {
+    id: 'music',
+    img: '/images/music.jpg',
+    title: '🎵 전통 음악',
+    desc: '두타르, 탄부르, 도이라 등 다양한 전통 악기와 신비로운 선율이 흐릅니다.',
+    location: '사마르칸트 레기스탄 광장, 공연장',
+    point: '전통 샤쉬마콤 라이브 연주, 고대 악기 관람',
+    tip: '저녁 시간 레기스탄 광장 주변 야외 공연 강추'
+  },
+  {
+    id: 'dance',
+    img: '/images/dance.jpg',
+    title: '💃 전통 춤',
+    desc: '우즈베키스탄의 전통 춤은 우아한 손동작과 화려한 의상이 매력적입니다.',
+    location: '히바 이찬칼라 성벽 안마당, 문화 명소',
+    point: '음악에 맞춰 다 함께 추는 현지인 축제 댄스',
+    tip: '여름철 라이브 식당에 가면 현지인들과 함께 출 수 있음'
+  },
+  {
+    id: 'wedding',
+    img: '/images/wedding.jpg',
+    title: '💖 전통 결혼식',
+    desc: '온 동네 가족과 친척이 모두 모여 전통 음악과 춤으로 밤새 축하하는 대행사입니다.',
+    location: '전국 웨딩홀, 마을 자치회관',
+    point: '거대한 플로브 무료 대접, 우즈벡 전통 혼례 구경',
+    tip: '여행 중 우연히 초대받는다면 주저 말고 축하해주러 가세요'
+  },
+  {
+    id: 'hospitality',
+    img: '/images/hospitality.jpg',
+    title: '🤝 손님 환대 문화',
+    desc: '외국인 손님을 집으로 기꺼이 초대해 따뜻하게 맞이하고 차와 음식을 아낌없이 대접하는 정 많은 문화입니다.',
+    location: '우즈베키스탄 전역 가정집',
+    point: '화덕에서 갓 구운 전통 빵(리뵤시카)과 향긋한 녹차 대접',
+    tip: '현지인이 건네는 차와 빵은 오른손으로 정중히 받는 게 매너'
+  }
 ];
-
 export const interviewData = [
   { id: 1, q: "우즈베키스탄은 어떤 나라인지 한마디로 소개해 주세요!", a: "중앙아시아 중심에 있고, 옛날 실크로드 역사도 많고 사람들이 정말 착하고 친절한 나라입니다." },
   { id: 2, q: "처음 여행을 간다면 수도 타슈켄트에서 무엇을 가장 추천하시나요?", a: "진짜 큰 전통 시장인 '초르수 바자르' 구경해 보세요. 그리고 지하철역들이 박물관처럼 아주 예쁘니까 꼭 타보세요!" },
