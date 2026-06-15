@@ -1,15 +1,426 @@
-// [이미지 import 문은 모두 삭제되었습니다. 더 이상 필요 없습니다!]
-
 export const travelData = [
-  { id: 1, title: "사마르칸트 (Samarkand)", subtitle: "푸른 제국의 중심지", image: '/images/samarkand.jpg', description: "실크로드의 진주라 불리는 사마르칸트는 화려한 푸른빛 모자이크 타일로 가득한 레기스탄 광장과 아름다운 건축물들이 살아 숨 쉬는 도시입니다." },
-  { id: 2, title: "부하라 (Bukhara)", subtitle: "중세 이슬람의 박물관", image: '/images/bukhara.jpg', description: "2500년의 역사를 간직한 고도시로, 칼랸 미나레트와 오래된 전통 시장이 보존되어 있습니다." },
-  { id: 3, title: "히바 (Khiva)", subtitle: "성벽 속의 살아있는 박물관", image: '/images/khiva.jpg', description: "도시 전체가 거대한 흙빛 성벽으로 둘러싸인 이찬 칼라는 유네스코 세계문화유산으로 지정되어 있습니다." }
+  { id: 1, title: "사마르칸트 (Samarkand)", subtitle: "푸른 제국의 중심지", image: '/images/samarkand.jpg', description: "실크로드의 진주라 불리는 사마르칸트는 동서양의 상인과 학자들이 오가던 중앙아시아의 대표 역사 도시입니다. 레기스탄 광장의 세 마드라사는 푸른 돔과 정교한 모자이크 장식으로 유명하며, 비비하눔 모스크와 샤히진다 유적에서는 티무르 제국 시기의 웅장한 건축미를 가까이서 느낄 수 있습니다. 낮에는 햇빛에 반짝이는 타일의 색감을, 밤에는 조명이 켜진 광장의 분위기를 함께 즐기기 좋아 우즈베키스탄 여행에서 가장 인상적인 코스로 꼽힙니다." },
+  { id: 2, title: "타슈켄트 (Tashkent)", subtitle: "우즈베키스탄의 수도", image: '/images/tashkent.jpg', description: "현대적인 건물과 역사 유적이 공존하는 도시" },
+  { id: 3, title: "히바 (Khiva)", subtitle: "성벽 속의 살아있는 박물관", image: '/images/khiva.jpg', description: "도시 전체가 거대한 흙빛 성벽으로 둘러싸인 이찬 칼라는 유네스코 세계문화유산으로 지정되어 있습니다." },
+  { id: 4, title: "샤흐리사브즈 (Shahrisabz)", subtitle: "아미르 티무르의 고향", image: '/images/shahrisabz.jpg', description: "위대한 정복자 아미르 티무르가 태어난 유서 깊은 고향으로, 웅장한 악사라이 궁전 유적을 비롯해 도시 전체가 유네스코 세계문화유산으로 지정되어 있습니다." },
+  { id: 5, title: "누쿠스 (Nukus)", subtitle: "사막 지역의 중심 도시", image: '/images/nukus.jpg', description: "키질쿰 사막 인근에 위치한 중심 도시로, 구소련 시절 금지되었던 아방가르드 예술품들을 비밀리에 보존해 세계적으로 유명해진 사비츠키 미술관이 자리를 지키고 있습니다." },
+  { id: 6, title: "테르메즈 (Termez)", subtitle: "우즈베키스탄 최남단 역사 도시", image: '/images/termez.jpg', description: "아프가니스탄 국경과 맞닿은 최남단 도시로, 중앙아시아에서 보기 드문 고대 불교 유적지와 오랜 이슬람 성지들이 공존하는 독특한 역사적 가치를 지닌 곳입니다." },
+  { id: 7, title: "부하라 (Bukhara)", subtitle: "중세 이슬람의 박물관", image: '/images/bukhara.jpg', description: "2500년의 역사를 간직한 고도시로, 칼랸 미나레트와 오래된 전통 시장이 보존되어 있습니다." },
+  { id: 8, title: "안디잔 (Andijan)", subtitle: "무굴 제국 바부르 황제의 고향", image: '/images/andijan.jpg', description: "우즈베키스탄 동부 페르가나 계곡의 활기찬 중심 도시로, 인도 무굴 제국을 건설한 바부르 황제의 탄생지이며 실크로드 무역의 번영을 이어받은 유서 깊은 곳입니다." },
+  { id: 9, title: "침간 & 차르바크 (Chimgan & Charvak)", subtitle: "천산산맥의 만년설과 에메랄드빛 호수", image: '/images/chimgan.jpg', description: "웅장한 천산산맥 줄기의 침간산 만년설과 이를 배경으로 펼쳐진 에메랄드빛 차르바크 호수는 우즈베키스탄이 가진 뜻밖의 광활하고 아름다운 대자연을 여실히 보여주는 최고의 휴양 명소입니다." }
 ];
 
 export const foodData = [
   { id: 1, title: "플로브 (Plov)", subtitle: "우즈베키스탄 전통 볶음밥", image: '/images/plov.jpg', detail: "양고기나 소고기, 당근, 양파를 기름에 볶은 후 쌀을 넣어 뜸을 들이는 대표 주식입니다." },
   { id: 2, title: "샤실릭 (Shashlik)", subtitle: "숯불에 구운 전통 꼬치구이", image: '/images/shashlik.jpg', detail: "큼직하게 썬 고기를 향신료에 재워 숯불에 구워내는 요리입니다." },
-  { id: 3, title: "리뵤시카 (Non)", subtitle: "화덕에서 구워낸 주식 빵", image: '/images/non.jpg', detail: "진흙 화덕(탄두르) 벽에 붙여 구워내는 동그란 모양의 전통 빵입니다." }
+  { id: 3, title: "리뵤시카 (Non)", subtitle: "화덕에서 구워낸 주식 빵", image: '/images/non.jpg', detail: "진흙 화덕(탄두르) 벽에 붙여 구워내는 동그란 모양의 전통 빵입니다." },
+  { id: 4, title: "노린 (Norin)", subtitle: "말고기와 면으로 만든 전통 음식", image: '/images/norin.jpg', detail: "잘게 썬 말고기와 직접 반죽해 만든 얇은 면을 소금, 후추로 담백하게 버무려 먹는 전통 면요리입니다." },
+  { id: 5, title: "만티 (Manti)", subtitle: "고기와 양파를 넣은 찐만두", image: '/images/manti.jpg', detail: "얇은 만두피 속에 다진 고기와 달콤한 양파를 가득 채워 쪄낸 육즙 가득한 전통 대형 만두입니다." },
+  { id: 6, title: "추추바라 (Chuchvara)", subtitle: "작은 만두가 들어간 국물 요리", image: '/images/chuchvara.jpg', detail: "새끼손톱만 한 크기의 작은 전통 만두들을 고기 육수에 넣고 끓여낸 한국의 만두국과 비슷한 요리입니다." },
+  { id: 7, title: "쇼르바 (Shurpa)", subtitle: "고기와 채소가 들어간 전통 수프", image: '/images/shurpa.jpg', detail: "양고기나 소고기를 뼈째로 큼직하게 썰어 넣고 감자, 채소와 함께 오랜 시간 푹 고아낸 진한 수프입니다." },
+  { id: 8, title: "디마마 (Dimlama)", subtitle: "고기와 채소를 함께 찐 요리", image: '/images/dimlama.jpg', detail: "냄비 바닥에 고기를 깔고 양배추, 감자 등의 채소를 겹겹이 쌓아 오직 채소의 수분으로만 부드럽게 쪄낸 찜요리입니다." },
+  { id: 9, title: "카잔 케밥 (Kazan Kebab)", subtitle: "감자와 고기를 함께 조리한 음식", image: '/images/kazan-kebab.jpg', detail: "전통 무쇠 솥(카잔)에 양고기나 소고기를 기름에 튀기듯 구운 후 고소한 감자를 함께 곁들여 먹는 요리입니다." },
+  { id: 10, title: "모쉬후르다 (Moshhurda)", subtitle: "녹두가 들어간 전통 수프", image: '/images/moshhurda.jpg', detail: "우즈베키스탄에서 자주 먹는 고소한 녹두(Mosh)와 쌀, 고기를 함께 넣어 끓여내어 속을 편안하게 해주는 수프입니다." },
+  { id: 11, title: "할림 (Halim)", subtitle: "밀과 고기를 오래 끓여 만든 음식", image: '/images/halim.jpg', detail: "밀과 고기를 형체가 없어질 때까지 오랜 시간 저어가며 걸쭉하게 끓여내어 추운 겨울이나 축제 때 먹는 보양식입니다." },
+  { id: 12, title: "구마 (Gumma)", subtitle: "고기를 넣어 튀긴 전통 간식", image: '/images/gumma.jpg', detail: "반달 모양의 만두피 속에 양념한 고기를 넣고 기름에 노릇노릇하게 튀겨내어 바삭하게 즐기는 전통 시장 간식입니다." }
+];
+
+export const restaurantImageByName = {
+  "Besh Qozon": {
+    src: "/images/restaurants/besh-qozon.jpg",
+    source: "https://www.beshqozon.com/"
+  },
+  "Afsona": {
+    src: "/images/restaurants/afsona.webp",
+    source: "https://araratour.com/articles/top-national-restaurants-in-tashkent"
+  },
+  "Caravan": {
+    src: "/images/restaurants/caravan.webp",
+    source: "https://araratour.com/articles/top-national-restaurants-in-tashkent"
+  },
+  "Karimbek": {
+    src: "/images/restaurants/karimbek.jpeg",
+    source: "https://www.happycow.net/reviews/karimbek-samarkand-137921"
+  },
+  "Minzifa": {
+    src: "/images/restaurants/minzifa.jpg",
+    source: "https://centralasia-adventures.com/en/uzbekistan/restaurants_of_bukhara/minzifa_restaurant.html"
+  },
+  "National Food": {
+    src: "/images/restaurants/chorsu.webp",
+    source: "https://araratour.com/articles/street-food-in-tashkent"
+  },
+  "Chorsu Bazaar": {
+    src: "/images/restaurants/chorsu.webp",
+    source: "https://araratour.com/articles/street-food-in-tashkent"
+  },
+  "Siyob Bazaar": {
+    src: "/images/restaurants/siyob.jpg",
+    source: "https://foodperestroika.com/2018/05/07/uzbek-adventures-part-6-samarkands-siyob-bazaar/"
+  }
+};
+
+export const foodRestaurantData = [
+  {
+    id: "plov-besh-qozon",
+    foodId: 1,
+    foodTitle: "플로브",
+    name: "Besh Qozon",
+    label: "베쉬 코존",
+    type: "food",
+    city: "Tashkent",
+    coords: [41.3165025, 69.2095781],
+    point: "대형 카잔 플로브",
+    route: "Tashkent · Old City",
+    description: "대형 솥에서 지어내는 타슈켄트 대표 플로브 맛집으로, 현지 분위기를 가장 크게 느끼기 좋습니다.",
+    chat: "점심 전후가 가장 활기롭고, 인기 메뉴는 빨리 소진될 수 있어 조금 이른 시간 방문을 추천합니다.",
+    zoom: 15
+  },
+  {
+    id: "plov-afsona",
+    foodId: 1,
+    foodTitle: "플로브",
+    name: "Afsona",
+    label: "아프소나",
+    type: "food",
+    city: "Tashkent",
+    coords: [41.3152936, 69.2451059],
+    point: "깔끔한 우즈베크 가정식",
+    route: "Tashkent · City Center",
+    description: "전통 요리를 현대적인 식당 분위기에서 먹기 좋은 곳으로, 플로브와 여러 우즈베크 가정식을 함께 보기 좋습니다.",
+    chat: "처음 우즈베크 음식을 먹는 여행자라면 플로브와 만티, 수프를 함께 주문해 비교해 보세요.",
+    zoom: 15
+  },
+  {
+    id: "shashlik-karimbek",
+    foodId: 2,
+    foodTitle: "샤실릭",
+    name: "Karimbek",
+    label: "카림벡",
+    type: "food",
+    city: "Samarkand",
+    coords: [39.6471993, 66.936607],
+    point: "현지식 고기 요리",
+    route: "Samarkand · Amir Temur Street",
+    description: "사마르칸트에서 고기 요리와 전통 식사를 즐기기 좋은 현지 인기 식당입니다.",
+    chat: "샤실릭은 빵과 양파를 곁들이면 맛이 더 살아나고, 저녁 시간에는 사람이 많을 수 있습니다.",
+    zoom: 15
+  },
+  {
+    id: "shashlik-caravan",
+    foodId: 2,
+    foodTitle: "샤실릭",
+    name: "Caravan",
+    label: "카라반",
+    type: "food",
+    city: "Tashkent",
+    coords: [41.285204, 69.257621],
+    point: "샤실릭과 전통 그릴",
+    route: "Tashkent · Yakkasaray",
+    description: "전통적인 인테리어와 고기 요리로 잘 알려진 타슈켄트 식당입니다.",
+    chat: "샤실릭은 여러 종류를 나눠 먹기 좋아서 2명 이상이면 모둠으로 주문해 보는 것도 좋습니다.",
+    zoom: 15
+  },
+  {
+    id: "non-siyob-bazaar",
+    foodId: 3,
+    foodTitle: "리뵤시카",
+    name: "Siyob Bazaar",
+    label: "시욥 바자르",
+    type: "food",
+    city: "Samarkand",
+    coords: [39.6627889, 66.9805432],
+    point: "사마르칸트 논",
+    route: "Samarkand · Old City",
+    description: "사마르칸트 논을 비롯한 전통 빵과 시장 간식을 보기 좋은 대표 바자르입니다.",
+    chat: "빵은 막 구운 시간대에 향이 가장 좋고, 비비하눔 모스크와 함께 묶어 걷기 좋습니다.",
+    zoom: 15
+  },
+  {
+    id: "non-chorsu-bazaar",
+    foodId: 3,
+    foodTitle: "리뵤시카",
+    name: "Chorsu Bazaar",
+    label: "초르수 바자르",
+    type: "food",
+    city: "Tashkent",
+    coords: [41.3262282, 69.236864],
+    point: "전통 빵과 시장 음식",
+    route: "Tashkent · Old Town",
+    description: "타슈켄트 구도심의 대표 시장으로, 논과 전통 식재료, 시장 음식을 한 번에 볼 수 있습니다.",
+    chat: "시장 내부가 넓으니 빵 구역과 음식 구역을 나눠 천천히 둘러보는 동선이 좋습니다.",
+    zoom: 15
+  },
+  {
+    id: "norin-national-food",
+    foodId: 4,
+    foodTitle: "노린",
+    name: "National Food",
+    label: "하드라 밀리 타옴라르",
+    type: "food",
+    city: "Tashkent",
+    coords: [41.3244499, 69.2446771],
+    point: "노린과 현지 국수 요리",
+    route: "Tashkent · Khadra",
+    description: "현지식 노린, 수프, 고기 요리를 찾기 좋은 타슈켄트의 대중적인 전통 음식점입니다.",
+    chat: "노린은 차갑게 먹는 면 요리라 수프나 따뜻한 차와 함께 주문하면 균형이 좋습니다.",
+    zoom: 15
+  },
+  {
+    id: "norin-afsona",
+    foodId: 4,
+    foodTitle: "노린",
+    name: "Afsona",
+    label: "아프소나",
+    type: "food",
+    city: "Tashkent",
+    coords: [41.3152936, 69.2451059],
+    point: "전통 면 요리",
+    route: "Tashkent · City Center",
+    description: "여행자가 접근하기 쉬운 분위기에서 노린과 우즈베크 전통 요리를 함께 경험하기 좋은 식당입니다.",
+    chat: "말고기나 카지 소시지가 들어가는 메뉴가 있을 수 있어 재료를 먼저 확인하면 좋습니다.",
+    zoom: 15
+  },
+  {
+    id: "manti-afsona",
+    foodId: 5,
+    foodTitle: "만티",
+    name: "Afsona",
+    label: "아프소나",
+    type: "food",
+    city: "Tashkent",
+    coords: [41.3152936, 69.2451059],
+    point: "찐만두와 전통 가정식",
+    route: "Tashkent · City Center",
+    description: "만티처럼 처음 먹기 쉬운 우즈베크 가정식을 깔끔하게 즐기기 좋은 곳입니다.",
+    chat: "만티는 사워크림이나 토마토 소스를 곁들이면 육즙과 양파 향이 더 잘 살아납니다.",
+    zoom: 15
+  },
+  {
+    id: "manti-minzifa",
+    foodId: 5,
+    foodTitle: "만티",
+    name: "Minzifa",
+    label: "민지파",
+    type: "food",
+    city: "Bukhara",
+    coords: [39.771983, 64.4192012],
+    point: "부하라식 전통 식사",
+    route: "Bukhara · Old City",
+    description: "부하라 구시가지에서 전통 요리를 즐기기 좋은 식당으로, 만티와 고기 요리를 함께 보기 좋습니다.",
+    chat: "부하라 관광 중 점심이나 저녁으로 넣기 좋고, 구시가지 산책 동선과 잘 맞습니다.",
+    zoom: 15
+  },
+  {
+    id: "chuchvara-afsona",
+    foodId: 6,
+    foodTitle: "추추바라",
+    name: "Afsona",
+    label: "아프소나",
+    type: "food",
+    city: "Tashkent",
+    coords: [41.3152936, 69.2451059],
+    point: "작은 만두 수프",
+    route: "Tashkent · City Center",
+    description: "추추바라처럼 국물과 만두가 함께 나오는 메뉴를 편하게 접하기 좋은 타슈켄트 식당입니다.",
+    chat: "한국식 만두국과 비슷하게 느껴질 수 있어 우즈베크 음식 입문 메뉴로 좋습니다.",
+    zoom: 15
+  },
+  {
+    id: "chuchvara-minzifa",
+    foodId: 6,
+    foodTitle: "추추바라",
+    name: "Minzifa",
+    label: "민지파",
+    type: "food",
+    city: "Bukhara",
+    coords: [39.771983, 64.4192012],
+    point: "부하라 전통 수프",
+    route: "Bukhara · Old City",
+    description: "부하라 여행 중 따뜻한 국물 요리와 전통 만두류를 찾기 좋은 구시가지 식당입니다.",
+    chat: "더운 낮보다 저녁에 먹으면 부담이 덜하고, 빵과 함께 곁들이기 좋습니다.",
+    zoom: 15
+  },
+  {
+    id: "shurpa-karimbek",
+    foodId: 7,
+    foodTitle: "쇼르바",
+    name: "Karimbek",
+    label: "카림벡",
+    type: "food",
+    city: "Samarkand",
+    coords: [39.6471993, 66.936607],
+    point: "고기 수프",
+    route: "Samarkand · Amir Temur Street",
+    description: "사마르칸트에서 쇼르바와 고기 요리를 든든하게 먹기 좋은 현지 식당입니다.",
+    chat: "쇼르바는 국물이 진해서 점심 한 끼로 충분하고, 빵을 곁들이면 더 든든합니다.",
+    zoom: 15
+  },
+  {
+    id: "shurpa-national-food",
+    foodId: 7,
+    foodTitle: "쇼르바",
+    name: "National Food",
+    label: "하드라 밀리 타옴라르",
+    type: "food",
+    city: "Tashkent",
+    coords: [41.3244499, 69.2446771],
+    point: "전통 수프와 현지식",
+    route: "Tashkent · Khadra",
+    description: "쇼르바, 노린, 고기 요리 등 대중적인 현지 메뉴를 폭넓게 보기 좋은 전통 음식점입니다.",
+    chat: "초르수 바자르와 가까워 시장 구경 뒤 따뜻한 식사 코스로 연결하기 좋습니다.",
+    zoom: 15
+  },
+  {
+    id: "dimlama-caravan",
+    foodId: 8,
+    foodTitle: "디마마",
+    name: "Caravan",
+    label: "카라반",
+    type: "food",
+    city: "Tashkent",
+    coords: [41.285204, 69.257621],
+    point: "찜 요리와 고기 메뉴",
+    route: "Tashkent · Yakkasaray",
+    description: "고기와 채소를 함께 먹는 전통 메뉴를 차분한 분위기에서 즐기기 좋은 타슈켄트 식당입니다.",
+    chat: "디마마는 채소 수분으로 익힌 요리라 고기 메뉴와 함께 나눠 먹으면 좋습니다.",
+    zoom: 15
+  },
+  {
+    id: "dimlama-minzifa",
+    foodId: 8,
+    foodTitle: "디마마",
+    name: "Minzifa",
+    label: "민지파",
+    type: "food",
+    city: "Bukhara",
+    coords: [39.771983, 64.4192012],
+    point: "채소 찜과 부하라식 식사",
+    route: "Bukhara · Old City",
+    description: "부하라 구시가지에서 채소와 고기를 함께 쓰는 전통 요리를 맛보기 좋은 식당입니다.",
+    chat: "구시가지 숙소 근처라면 저녁 산책 전후로 방문하기 편합니다.",
+    zoom: 15
+  },
+  {
+    id: "kazan-kebab-karimbek",
+    foodId: 9,
+    foodTitle: "카잔 케밥",
+    name: "Karimbek",
+    label: "카림벡",
+    type: "food",
+    city: "Samarkand",
+    coords: [39.6471993, 66.936607],
+    point: "카잔 고기 요리",
+    route: "Samarkand · Amir Temur Street",
+    description: "카잔에 익힌 고기와 감자 요리처럼 묵직한 현지식을 먹기 좋은 사마르칸트 식당입니다.",
+    chat: "카잔 케밥은 양이 넉넉한 편이라 샐러드나 차를 함께 곁들이면 부담이 덜합니다.",
+    zoom: 15
+  },
+  {
+    id: "kazan-kebab-caravan",
+    foodId: 9,
+    foodTitle: "카잔 케밥",
+    name: "Caravan",
+    label: "카라반",
+    type: "food",
+    city: "Tashkent",
+    coords: [41.285204, 69.257621],
+    point: "전통 카잔 요리",
+    route: "Tashkent · Yakkasaray",
+    description: "고기 중심의 우즈베크 전통 메뉴를 안정적으로 먹기 좋은 타슈켄트의 유명 식당입니다.",
+    chat: "샤실릭과 카잔 케밥을 함께 주문하면 구운 고기와 솥 요리의 차이를 비교할 수 있습니다.",
+    zoom: 15
+  },
+  {
+    id: "moshhurda-national-food",
+    foodId: 10,
+    foodTitle: "모쉬후르다",
+    name: "National Food",
+    label: "하드라 밀리 타옴라르",
+    type: "food",
+    city: "Tashkent",
+    coords: [41.3244499, 69.2446771],
+    point: "녹두 수프와 현지식",
+    route: "Tashkent · Khadra",
+    description: "녹두와 쌀이 들어간 전통 수프류를 찾기 좋은 타슈켄트 현지 음식점입니다.",
+    chat: "속이 편한 음식이라 긴 이동 뒤 가볍게 먹기 좋고, 빵을 곁들이면 한 끼가 됩니다.",
+    zoom: 15
+  },
+  {
+    id: "moshhurda-afsona",
+    foodId: 10,
+    foodTitle: "모쉬후르다",
+    name: "Afsona",
+    label: "아프소나",
+    type: "food",
+    city: "Tashkent",
+    coords: [41.3152936, 69.2451059],
+    point: "전통 수프와 가정식",
+    route: "Tashkent · City Center",
+    description: "수프류와 전통 가정식을 깔끔하게 주문하기 좋은 식당으로, 여행 초반 메뉴 선택에 편합니다.",
+    chat: "기름진 고기 요리와 함께 먹기보다 단독 메뉴로 먹으면 녹두 향이 더 잘 느껴집니다.",
+    zoom: 15
+  },
+  {
+    id: "halim-national-food",
+    foodId: 11,
+    foodTitle: "할림",
+    name: "National Food",
+    label: "하드라 밀리 타옴라르",
+    type: "food",
+    city: "Tashkent",
+    coords: [41.3244499, 69.2446771],
+    point: "걸쭉한 보양식",
+    route: "Tashkent · Khadra",
+    description: "전통적인 대중 음식 메뉴가 많은 곳이라 할림 같은 진한 보양식을 찾기 좋은 후보입니다.",
+    chat: "할림은 계절과 시간에 따라 제공 여부가 달라질 수 있어 방문 전 메뉴를 확인하면 좋습니다.",
+    zoom: 15
+  },
+  {
+    id: "halim-chorsu-bazaar",
+    foodId: 11,
+    foodTitle: "할림",
+    name: "Chorsu Bazaar",
+    label: "초르수 바자르",
+    type: "food",
+    city: "Tashkent",
+    coords: [41.3262282, 69.236864],
+    point: "시장식 할림과 전통 음식",
+    route: "Tashkent · Old Town",
+    description: "타슈켄트 전통 시장 음식 구역에서 할림 같은 계절 음식과 현지 간식을 찾아보기 좋은 장소입니다.",
+    chat: "할림은 항상 있는 메뉴가 아닐 수 있어, 시장 음식 구역에서 당일 판매 여부를 먼저 물어보세요.",
+    zoom: 15
+  },
+  {
+    id: "gumma-chorsu-bazaar",
+    foodId: 12,
+    foodTitle: "구마",
+    name: "Chorsu Bazaar",
+    label: "초르수 바자르",
+    type: "food",
+    city: "Tashkent",
+    coords: [41.3262282, 69.236864],
+    point: "튀김 간식과 시장 음식",
+    route: "Tashkent · Old Town",
+    description: "구마처럼 바로 먹는 튀김 간식과 빵, 고기 요리를 함께 둘러보기 좋은 타슈켄트 대표 시장입니다.",
+    chat: "기름에 튀긴 간식은 따뜻할 때 먹는 것이 좋고, 현금 소액을 준비하면 편합니다.",
+    zoom: 15
+  },
+  {
+    id: "gumma-siyob-bazaar",
+    foodId: 12,
+    foodTitle: "구마",
+    name: "Siyob Bazaar",
+    label: "시욥 바자르",
+    type: "food",
+    city: "Samarkand",
+    coords: [39.6627889, 66.9805432],
+    point: "사마르칸트 시장 간식",
+    route: "Samarkand · Old City",
+    description: "사마르칸트의 대표 시장으로, 빵과 간식류를 현지 분위기 속에서 맛보기 좋습니다.",
+    chat: "레기스탄과 샤히진다 동선 사이에 넣으면 이동 낭비가 적고, 오전에 더 활기가 있습니다.",
+    zoom: 15
+  }
 ];
 
 export const cultureData = [
@@ -21,4 +432,32 @@ export const cultureData = [
   { id: 'hospitality', img: '/images/hospitality.jpg', title: '🤝 6. 손님 환대 문화', desc: '손님을 따뜻하게 맞이하고 차와 음식을 대접하는 문화가 있습니다.' },
   { id: 'food', img: '/images/food.jpg', title: '🍽️ 7. 전통 음식 문화', desc: '플로브, 삼사, 라그만 등 다양한 전통 음식이 있습니다.' },
   { id: 'history', img: '/images/history.jpg', title: '🏛️ 8. 역사 유산', desc: '사마르칸트, 부하라, 히바는 실크로드의 대표적인 역사 도시입니다.' }
+];
+
+export const interviewData = [
+  { id: 1, q: "우즈베키스탄은 어떤 나라인지 한마디로 소개해 주세요!", a: "중앙아시아 중심에 있고, 옛날 실크로드 역사도 많고 사람들이 정말 착하고 친절한 나라입니다." },
+  { id: 2, q: "처음 여행을 간다면 수도 타슈켄트에서 무엇을 가장 추천하시나요?", a: "진짜 큰 전통 시장인 '초르수 바자르' 구경해 보세요. 그리고 지하철역들이 박물관처럼 아주 예쁘니까 꼭 타보세요!" },
+  { id: 3, q: "우즈베키스탄 전통 음식 중 딱 하나만 먹어야 한다면 무엇일까요?", a: "무조건 볶음밥인 '플로브(Plov)'를 먹어야 합니다! 고기랑 당근, 쌀이 들어가서 한국 사람 입맛에도 정말 잘 맞아요." },
+  { id: 4, q: "플로브를 더 맛있게 즐기는 현지인만의 꿀팁이 있나요?", a: "우즈벡 사람들은 따뜻한 녹차랑 같이 먹어요. 그리고 토마토랑 양파로 만든 '아치추크' 샐러드가 있는데, 같이 먹으면 안 느끼하고 진짜 맛있어요." },
+  { id: 5, q: "가장 추천하는 역사 도시는 어디인가요?", a: "도시 건물이 다 파란색 타일로 꾸며진 '사마르칸트'입니다. 옛날 실크로드 때 아주 유명했고 진짜 아름다워요." },
+  { id: 6, q: "사마르칸트에서 놓치지 말아야 할 최고의 명소는 어디인가요?", a: "커다란 이슬람 학교 건물 3개가 있는 '레기스탄 광장'입니다. 여기는 밤에 조명이 켜지면 야경이 진짜 최고예요." },
+  { id: 7, q: "교과서에서 보던 '실크로드'의 흔적을 지금도 느낄 수 있나요?", a: "네! '부하라'나 '히바'라는 도시에 가면 옛날 상인들이 자고 가던 숙소랑 흙으로 만든 옛날 성벽이 그대로 있어서 신기해요." },
+  { id: 8, q: "우즈베키스탄 사람들의 민족성이나 인상은 어떤 편인가요?", a: "외국인 손님을 진짜 좋아해요. 처음 보는 사람도 집에 초대해서 전통 빵이랑 차를 대접할 만큼 정이 아주 많아요." },
+  { id: 9, q: "현지에서 외국인 여행자가 꼭 지켜야 할 매너가 있을까요?", a: "이슬람 사원에 갈 때는 짧은 옷을 안 입는 게 좋아요. 그리고 현지인이 화덕에서 구운 빵(리뵤시카)을 찢어주면 맛있게 먹는 게 예의예요." },
+  { id: 10, q: "우즈베키스탄의 전통 의상은 어떤 매력이 있나요?", a: "'아틀라스'라는 천이 유명해요. 알록달록하고 화려한 무늬가 들어가서 색깔이 진짜 예쁩니다." },
+  { id: 11, q: "전통 의상을 직접 입어보거나 구매할 수 있는 곳이 있나요?", a: "부하라 같은 역사 도시의 전통 시장에 가면 장인들이 만든 스카프나 옷이 많아요. 쉽게 사거나 입어볼 수 있어요." },
+  { id: 12, q: "우즈베키스탄 최고의 축제는 무엇인가요?", a: "매년 3월 21일에 하는 봄맞이 새해 축제 '나브루즈(Navruz)'입니다. 길거리에서 다 같이 노래하고 춤추는 큰 축제예요." },
+  { id: 13, q: "나브루즈 축제 기간에만 먹을 수 있는 특별한 음식이 있다면서요?", a: "밀싹을 하루 종일 끓여서 만드는 '수말락(Sumalak)'이라는 디저트가 있어요. 초콜릿처럼 달콤하고 축제 때 꼭 먹어요." },
+  { id: 14, q: "우즈베키스탄의 전통 음악은 어떤 느낌인가요?", a: "'샤쉬마콤' 같은 클래식 음악이 있어요. '도이라' 같은 전통 악기 소리가 나는데 조금 슬프면서도 신비로운 느낌이 들어요." },
+  { id: 15, q: "음악이나 춤을 즐길 수 있는 현지 축제나 명소가 있나요?", a: "여름에 큰 광장이나 식당에 가면 라이브 음악을 많이 연주해요. 그럼 현지 사람들도 신나서 다 같이 춤을 춰요." },
+  { id: 16, q: "여행하기 가장 좋은 계절은 언제인가요?", a: "날씨가 시원하고 좋은 봄(4월~5월)하고 가을(9월~10월)을 추천합니다. 여름은 진짜 너무 더워서 힘들 수 있어요!" },
+  { id: 17, q: "역사 유적 외에 추천할 만한 대자연 명소가 있나요?", a: "타슈켄트 근처에 있는 '침간산'하고 파란색 '차르바크 호수'예요. 산에 눈도 있고 호수가 진짜 넓어서 가슴이 시원해져요." },
+  { id: 18, q: "우즈베키스탄 여행 중 가장 기억에 남을 만한 특별한 경험은 무엇일까요?", a: "밤에 기차를 타고 사막을 지나가는 거랑, 밤하늘에 별이랑 은하수가 진짜 많이 보이는 게 제일 기억에 남을 거예요." },
+  { id: 19, q: "우즈베키스탄을 한 단어로 표현한다면 무엇일까요?", a: "'모자이크'요! 여러 가지 예쁜 역사와 문화, 사람들이 섞여서 하나의 큰 그림처럼 아름답기 때문이에요." },
+  { id: 20, q: "우즈베키스탄이 가진 숨겨진 최고의 반전 매력은?", a: "사람들이 생각하는 것보다 도시가 엄청 깨끗해요! 그리고 치안이 좋아서 밤에 돌아다녀도 진짜 안전합니다." },
+  { id: 21, q: "한국과 우즈베키스탄 문화 사이에 닮은 점이 있나요?", a: "우즈벡 사람들도 부모님이나 할머니, 할아버지를 진짜 공경해요. 가족을 소중하게 생각하는 마음이 한국이랑 비슷해요." },
+  { id: 22, q: "주변 친구들에게 우즈베키스탄 여행을 추천할 의향이 있으신가요?", a: "네, 당연해요! 맨날 가는 똑같은 여행지 말고, 진짜 특별한 문화랑 모험을 좋아하는 친구한테 추천하면 백 퍼센트 좋아할 거예요." },
+  { id: 23, q: "한국에서 우즈베키스탄 음식을 그리워할 때 찾아갈 만한 곳이 있나요?", a: "서울 동대문역 근처에 '중앙아시아 거리'가 있어요. 거기 가면 우즈벡 사람들이 직접 만드는 화덕 빵이랑 고기 꼬치구이(샤실릭) 먹을 수 있어요." },
+  { id: 24, q: "앞으로 두 나라의 문화 교류에 대해 바라는 점이 있다면?", a: "한국 분들이 한국 음악 사랑하는 것처럼, 우즈베키스탄의 예쁜 문화도 많이 알아봐 주고 서로 친한 이웃 친구가 되면 좋겠습니다." },
+  { id: 25, q: "마지막으로 이 웹사이트 방문자들에게 전하고 싶은 한마디는?", a: "인터넷으로만 보지 말고 우즈베키스탄에 꼭 직접 놀러 오세요! 진짜 재미있을 거예요. '후쉬 켈립시즈(환영합니다)'!" }
 ];

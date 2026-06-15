@@ -1,5 +1,5 @@
-import React from 'react';
 import { cultureData } from '../data';
+import ScrollTopButton from '../components/ScrollTopButton';
 import './PageStyle.css';
 import './Culture.css';
 
@@ -22,6 +22,8 @@ function Culture() {
           </div>
         ))}
       </div>
+
+      <ScrollTopButton />
     </div>
   );
 }

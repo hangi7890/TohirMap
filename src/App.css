@@ -1,0 +1,10 @@
+body:not([data-active-tab="map"]) iframe[src*="chatling.ai"],
+body:not([data-active-tab="map"]) [data-id="8818868731"],
+body:not([data-active-tab="map"]) [id*="chatling" i],
+body:not([data-active-tab="map"]) [class*="chatling" i],
+body:not([data-active-tab="map"]) [id*="chtl" i],
+body:not([data-active-tab="map"]) [class*="chtl" i] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}

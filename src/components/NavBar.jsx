@@ -1,28 +1,32 @@
-import React from 'react';
 import './NavBar.css';
 
 function NavBar({ activeTab, setActiveTab }) {
   return (
     <header className="navbar-header">
       <div className="navbar-container">
-        <div className="navbar-logo">
+        <button
+          type="button"
+          className="navbar-logo"
+          onClick={() => setActiveTab('travel')}
+          aria-label="TohirMap 여행 페이지로 이동"
+        >
           <span className="logo-emblem">🇺🇿</span>
-          <span className="logo-text">Uzbek Guide</span>
-        </div>
+          <span className="logo-text">TohirMap</span>
+        </button>
 
         <nav className="navbar-links">
           <button
             className={`nav-tab-btn ${activeTab === 'travel' ? 'active' : ''}`}
             onClick={() => setActiveTab('travel')}
           >
-            ✈️ 여행 명소
+            ✈️ 여행
           </button>
 
           <button
             className={`nav-tab-btn ${activeTab === 'map' ? 'active' : ''}`}
             onClick={() => setActiveTab('map')}
           >
-            🗺️ 인터랙티브 지도
+            🗺️ AI 지도
           </button>
 
           <button
