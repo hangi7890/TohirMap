@@ -44,7 +44,9 @@ function Interview() {
             </div>
 
             <div className="chat-bubble-row answer-row">
-              <div className="avatar-icon">🇺🇿</div>
+              <div className="avatar-icon avatar-photo">
+                <img src="/images/local-interview.jpg" alt="현지인 인터뷰 답변자" />
+              </div>
               <div className="chat-bubble bubble-answer">
                 <span className="bubble-tag">Answer</span>
                 <p>{currentInterview.a}</p>

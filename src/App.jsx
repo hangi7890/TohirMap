@@ -96,7 +96,6 @@ function App() {
   }, [activeTab]);
 
   const renderContent = () => {
-    console.log("현재 선택된 탭:", activeTab); // 콘솔창에 탭 이름 찍기
     const mapPageKey = mapFocusFoodId
       ? `food-${mapFocusFoodId}`
       : `travel-${mapFocusSpotId || 'default'}`;
@@ -112,11 +111,13 @@ function App() {
   };
 
   return (
-    <div style={{ backgroundColor: '#f7fafc', minHeight: '100vh' }}>
+    <div className="app-root">
       <NavBar activeTab={activeTab} setActiveTab={handleTabChange} />
-      <main style={{ padding: '20px 0' }}>
-        {renderContent()}
-      </main>
+      <div className="app-layout">
+        <main className="app-main">
+          {renderContent()}
+        </main>
+      </div>
     </div>
   );
 }

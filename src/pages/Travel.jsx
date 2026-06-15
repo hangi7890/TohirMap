@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { travelData } from '../data';
+import ScrollTopButton from '../components/ScrollTopButton';
 import './PageStyle.css';
 import './Travel.css';
 
@@ -70,6 +71,8 @@ function Travel({ onNavigateMap = () => {} }) {
           </div>
         </div>
       )}
+
+      <ScrollTopButton />
     </div>
   );
 }

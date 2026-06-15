@@ -1,3 +1,21 @@
+body {
+  margin: 0;
+}
+
+.app-root {
+  min-height: 100vh;
+  background: #f7fafc;
+}
+
+.app-layout {
+  position: relative;
+}
+
+.app-main {
+  min-width: 0;
+  padding: 20px 0;
+}
+
 body:not([data-active-tab="map"]) iframe[src*="chatling.ai"],
 body:not([data-active-tab="map"]) [data-id="8818868731"],
 body:not([data-active-tab="map"]) [id*="chatling" i],
@@ -7,4 +25,10 @@ body:not([data-active-tab="map"]) [class*="chtl" i] {
   display: none !important;
   visibility: hidden !important;
   pointer-events: none !important;
+}
+
+@media (max-width: 760px) {
+  .app-main {
+    padding: 16px 0 92px;
+  }
 }
