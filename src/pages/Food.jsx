@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { foodData } from '../data';
 import ScrollTopButton from '../components/ScrollTopButton';
+import { getPublicAssetPath } from '../utils/assets';
 import './PageStyle.css';
 import './Food.css';
 
@@ -61,7 +62,7 @@ function Food({ onNavigateMap = () => {} }) {
             aria-label={`${food.title} 맛집을 지도에서 보기`}
           >
             <div className="card-image-box">
-              <img src={food.image} alt={food.title} className="card-image" />
+              <img src={getPublicAssetPath(food.image)} alt={food.title} className="card-image" />
               
               <div className="card-hover-overlay">
                 <span className="hover-tag">{food.subtitle}</span>

@@ -1,6 +1,7 @@
 ﻿import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import './MapPage.css';
 import { cleanupChatling, loadChatling } from '../utils/chatling';
+import { getPublicAssetPath } from '../utils/assets';
 import { mapData } from '../mapdata';
 import {
   foodMapData,
@@ -382,7 +383,7 @@ function MapPage({ focusSpotId = null, focusFoodId = null }) {
               >
                 {spotImage && (
                   <img
-                    src={spotImage.src}
+                    src={getPublicAssetPath(spotImage.src)}
                     alt={`${spot.label} 사진`}
                     className="spot-thumb"
                     loading="lazy"
@@ -408,7 +409,7 @@ function MapPage({ focusSpotId = null, focusFoodId = null }) {
 
               {selectedImage && (
                 <img
-                  src={selectedImage.src}
+                  src={getPublicAssetPath(selectedImage.src)}
                   alt={`${selectedSpot.label} 사진`}
                   className="selected-restaurant-image"
                   loading="lazy"
@@ -437,7 +438,7 @@ function MapPage({ focusSpotId = null, focusFoodId = null }) {
                     {selectedMenuPhotos.map((menuPhoto) => (
                       <figure key={`${selectedSpot.id}-${menuPhoto.src}`} className="menu-board-card">
                         <img
-                          src={menuPhoto.src}
+                          src={getPublicAssetPath(menuPhoto.src)}
                           alt={`${selectedSpot.name} ${menuPhoto.caption}`}
                           loading="lazy"
                         />

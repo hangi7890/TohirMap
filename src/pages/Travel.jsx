@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { travelData } from '../data';
 import ScrollTopButton from '../components/ScrollTopButton';
+import { getPublicAssetPath } from '../utils/assets';
 import './PageStyle.css';
 import './Travel.css';
 
@@ -27,7 +28,7 @@ function Travel({ onNavigateMap = () => {} }) {
             onClick={() => setActiveCity(city)} // 카드 클릭 시 해당 도시 데이터 저장
           >              
             <div className="card-image-box">
-              <img src={city.image} alt={city.title} className="card-image" />
+              <img src={getPublicAssetPath(city.image)} alt={city.title} className="card-image" />
             </div>
             
             <div className="card-content simple-content">
@@ -45,7 +46,7 @@ function Travel({ onNavigateMap = () => {} }) {
           {/* 어두운 배경 전체가 깔리고, 그 위에 큰 사진 배경 카드가 올라옵니다 */}
           <div 
             className="travel-detail-modal"
-            style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url(${activeCity.image})` }}
+            style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url(${getPublicAssetPath(activeCity.image)})` }}
             onClick={(e) => e.stopPropagation()} // 상세창 내부 클릭 시 닫히는 현상 방지
           >
             {/* 우측 상단 닫기 버튼 */}

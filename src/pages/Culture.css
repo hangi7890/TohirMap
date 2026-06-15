@@ -31,7 +31,7 @@
   padding: 42px;
   background:
     linear-gradient(rgba(255, 250, 240, 0.84), rgba(255, 250, 240, 0.96)),
-    url('/images/history.jpg') center / cover;
+    var(--culture-hero-image) center / cover;
 }
 
 .culture-eyebrow {

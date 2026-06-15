@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { cultureData } from '../data';
 import ScrollTopButton from '../components/ScrollTopButton';
+import { getPublicAssetPath } from '../utils/assets';
 import './Culture.css';
 
 const STAMP_STORAGE_KEY = 'tohirmap.cultureStampIds';
@@ -123,7 +124,10 @@ function Culture() {
   return (
     <main className="culture-tour-page">
       <section className="culture-tour-hero">
-        <div className="culture-hero-copy">
+        <div
+          className="culture-hero-copy"
+          style={{ '--culture-hero-image': `url(${getPublicAssetPath('/images/history.jpg')})` }}
+        >
           <span className="culture-eyebrow">TOHIR CULTURE PASSPORT</span>
           <h1>문화 체험 스탬프 투어</h1>
           <p>
@@ -194,7 +198,7 @@ function Culture() {
         <aside className="mission-detail-panel">
           <span className="culture-eyebrow">CURRENT MISSION</span>
           <h2>{selectedMission.title}</h2>
-          <img src={selectedMission.img} alt={selectedMission.title} />
+          <img src={getPublicAssetPath(selectedMission.img)} alt={selectedMission.title} />
           <dl>
             <div>
               <dt>장소</dt>
@@ -239,7 +243,7 @@ function Culture() {
               >
                 <button type="button" className="mission-card-main" onClick={() => setSelectedMissionId(mission.id)}>
                   <div className="mission-image-wrap">
-                    <img src={mission.img} alt={mission.title} loading="lazy" />
+                    <img src={getPublicAssetPath(mission.img)} alt={mission.title} loading="lazy" />
                     <span className="mission-number">{String(index + 1).padStart(2, '0')}</span>
                     {isStamped && <span className="mission-stamp-mark">STAMPED</span>}
                   </div>
